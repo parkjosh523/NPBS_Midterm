@@ -23,7 +23,7 @@ Generate example simulated data as described in 4.2:
 ```{r}
 ## Generate example simulated data as described in 4.2 
 ## C_1_datasets below will be a list with number of entries equal to num_datasets, each of which is an N x k matrix
-## Example datapoint: Entry for dataset 1, person 2, and time 3 can be accessed with C_1_datasets[[1]][2, 3]
+## Example datapoint: Entry for dataset 1, person 2, and time 3 in C_1_datasets can be accessed with C_1_datasets[[1]][2, 3]
 
 num_datasets <- 100 ## Number of simulated datasets 
 N <- 100 ## Number of sequences or "people"
