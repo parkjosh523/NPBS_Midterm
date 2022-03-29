@@ -1,0 +1,45 @@
+---
+title: "NPBS_Park&Prinster_Code"
+author: "Drew Prinster"
+date: "3/28/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(MASS)
+
+wd_path <- getwd() 
+SimulatedData_path = paste(wd_path, "/SimulatedData.R", sep="")
+source(SimulatedData_path)
+```
+
+Generate example simulated data as described in 4.2:
+
+```{r}
+## Generate example simulated data as described in 4.2 
+## C_1_datasets below will be a list with number of entries equal to num_datasets, each of which is an N x k matrix
+## Example datapoint: Entry for dataset 1, person 2, and time 3 can be accessed with C_1_datasets[[1]][2, 3]
+
+num_datasets <- 100 ## Number of simulated datasets 
+N <- 100 ## Number of sequences or "people"
+k <- 11 ## Length of each sequence or "number of observations per person n_i" (for now assume equal number of samples for all people at same times, n_i = n_j for all i, j)
+
+C_1_datasets <- generate_C_1_datasets(num_datasets, N, k)
+C_2_datasets <- generate_C_2_datasets(num_datasets, N, k)
+C_3_datasets <- generate_C_3_datasets(num_datasets, N, k)
+C_4_datasets <- generate_C_4_datasets(num_datasets, N, k)
+
+print("C_1_datasets dimensions:")
+print(c(length(C_1_datasets), dim(C_1_datasets[[1]])))
+print("C_2_datasets dimensions:")
+print(c(length(C_2_datasets), dim(C_2_datasets[[1]])))
+print("C_3_datasets dimensions:")
+print(c(length(C_3_datasets), dim(C_3_datasets[[1]])))
+print("C_4_datasets dimensions:")
+print(c(length(C_4_datasets), dim(C_4_datasets[[1]])))
+```
